@@ -16,6 +16,12 @@ When a service is not being used, STT will schedule a double-check (this timeout
 
 ### Wrapper
 
-Occasionally you want to wrap a TCP service, e.g. A Minecraft server. In this case, STT can wrap the TCP socket.
+Occasionally you want to wrap a TCP service, e.g. A Minecraft server.
 
-If service is not running currently, it returns an informational message to let user wait for server start and then call the start script.
+In this case, If Minecraft server is not running currently, STT occupies your server port, e.g. 25565 at first. Any user that tries to connect will receive an informational message to let user wait for server start. After that, STT will release the occupation of this port and then call the start script. This way you don't have to deal with the annoying TCP packet redirection.
+
+STT can also be configurated to automatically check your service's running status and reoccupy the port, this usually helps if your service fail to start.
+
+## TODO
+
+- [ ] Keep-Alive
