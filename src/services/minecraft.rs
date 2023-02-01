@@ -37,6 +37,10 @@ impl Service for MinecraftService {
         todo!()
     }
 
+    async fn running(&self) -> ServiceResult<bool> {
+        todo!()
+    }
+
     async fn busy(&self) -> ServiceResult<bool> {
         let config = ConnectionConfig::build(&self.address).with_port(self.port);
         let status = config
